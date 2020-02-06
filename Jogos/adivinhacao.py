@@ -4,6 +4,7 @@ import random
 Adicionado sistema de pontuação
 Função abs para retornar sempre o numero absoluto
 Adicionada uma funcao para chamar o jogo.
+Adicionado permissao para que o jogo seja chamado diretamente tambem com a __name__
 '''
 def jogar():
     print("*********************************")
@@ -56,3 +57,6 @@ def jogar():
             print("Seu total de pontos é ", total_de_pontos)
 
     print("Fim do jogo")
+
+if (__name__ == "__main__"):
+    jogar()
