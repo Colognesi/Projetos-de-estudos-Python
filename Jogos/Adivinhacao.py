@@ -1,3 +1,6 @@
+#Codigo realizado até a aula 4 do módulo 1 sobre laços de repetição
+#Adicionado variável total_de_tentativas e rodada
+
 print("*********************************")
 print("Bem vindo ao jogo de Adivinhação!")
 print("*********************************")
