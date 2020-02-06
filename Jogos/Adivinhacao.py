@@ -1,17 +1,29 @@
+import random
+
 '''
-Alterado o modo que é utilizado para repetição com for,
-adicionado também contador +1 no laço para contablizar 3 tentativas totais.
-Adicionado também validação para o tamanho do numero que deve ser digitado
-E adicionado Break para terminar a interação caso acerte
+Adicionado aleatoriedade no numero
+Adicionado niveis de dificuldade, quanto mais facil mais tentativas || Aula 7 projeto 1
 '''
 
 print("*********************************")
 print("Bem vindo ao jogo de Adivinhação!")
 print("*********************************")
 
-total_de_tetativas = 3
 rodada = 1
-numero_secreto = 42
+numero_secreto = random.randrange(1, 101)
+total_de_tetativas = 3
+
+print("Qual o nível de dificuldade?")
+print("(1) Fácil (2) Médio (3) Difícil")
+
+nivel = int(input("Defina o nível: "))
+
+if (nivel == 1):
+    total_de_tentativas = 20
+elif (nivel == 2):
+    total_de_tentativas = 10
+else:
+    total_de_tentativas = 5
 
 for rodada in range(1, total_de_tetativas + 1):
 
