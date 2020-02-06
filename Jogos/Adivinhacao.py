@@ -1,8 +1,8 @@
 import random
 
 '''
-Adicionado aleatoriedade no numero
-Adicionado niveis de dificuldade, quanto mais facil mais tentativas || Aula 7 projeto 1
+Adicionado sistema de pontuação
+Função abs para retornar sempre o numero absoluto
 '''
 
 print("*********************************")
@@ -12,6 +12,7 @@ print("*********************************")
 rodada = 1
 numero_secreto = random.randrange(1, 101)
 total_de_tentativas = 3
+total_de_pontos = 1000
 
 print("Qual o nível de dificuldade?")
 print("(1) Fácil (2) Médio (3) Difícil")
@@ -49,5 +50,8 @@ for rodada in range(1, total_de_tentativas + 1):
             print("Seu chute e maior que o numero secreto")
         elif(menor):
             print("Seu chute e menor que o numero secreto")
+            pontos_perdidos = abs(numero_secreto - chute)
+            total_de_pontos = total_de_pontos - pontos_perdidos
+        print("Seu total de pontos é ", total_de_pontos)
 
 print("Fim do jogo")
