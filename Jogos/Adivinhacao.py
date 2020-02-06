@@ -11,7 +11,7 @@ print("*********************************")
 
 rodada = 1
 numero_secreto = random.randrange(1, 101)
-total_de_tetativas = 3
+total_de_tentativas = 3
 
 print("Qual o nível de dificuldade?")
 print("(1) Fácil (2) Médio (3) Difícil")
@@ -25,9 +25,9 @@ elif (nivel == 2):
 else:
     total_de_tentativas = 5
 
-for rodada in range(1, total_de_tetativas + 1):
+for rodada in range(1, total_de_tentativas + 1):
 
-    print("Tentativa {} de {}".format(rodada, total_de_tetativas))
+    print("Tentativa {} de {}".format(rodada, total_de_tentativas))
 
     chute_str = input("Digite um número de 1 a 100: ")
     print("voce digitou: ", chute_str)
@@ -50,4 +50,4 @@ for rodada in range(1, total_de_tetativas + 1):
         elif(menor):
             print("Seu chute e menor que o numero secreto")
 
-    print("Fim do jogo")
+print("Fim do jogo")
