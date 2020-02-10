@@ -4,8 +4,8 @@ def jogar():
     print("*********************************")
 
     palavra_secreta = "banana".upper()
-    letras_acertadas = ['_', '_', '_', '_', '_',
-                        '_']  # adicionada lista para poder saber onde estao as letras acertadas
+    letras_acertadas = ["_" for letra in
+                        palavra_secreta]  # adicionada lista para poder saber onde estao as letras acertadas
     letras_faltando = str(letras_acertadas.count("_"))
     print("Ainda faltam {} letras".format(letras_faltando))
     enforcou = False
