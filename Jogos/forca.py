@@ -1,9 +1,17 @@
+import random
+
+
 def jogar():
     print("*********************************")
     print("***Bem vindo ao jogo da Forca!***")
     print("*********************************")
 
-    palavra_secreta = "banana".upper()
+    with open("palavras.txt") as arquivo:  # funcao with para autofechamento do arquivo mesmo em caso de erros
+        palavras = [linha.strip() for linha in arquivo]  # aprendendo a usar List Comprehension!
+
+    numero = random.randrange(0, len(palavras))  # adicionado para randomizar a palavra que vai ser selecionada
+
+    palavra_secreta = palavras[numero].upper()
     letras_acertadas = ["_" for letra in
                         palavra_secreta]  # adicionada lista para poder saber onde estao as letras acertadas
     letras_faltando = str(letras_acertadas.count("_"))
@@ -14,33 +22,36 @@ def jogar():
 
     print(letras_acertadas)
 
-    while (not acertou and not enforcou):
+    while not acertou and not enforcou:
         chute = input("Qual a letra? ")
         chute = chute.strip().upper()  # Strip utilizado para remover espacos em branco caso digitados, upper para manter sempre em caixa alta
-        index = 0  # utilizado para armazenar o espaço da letra chute
-        for letra in palavra_secreta:
 
-            if (chute.upper() == letra.upper()):  # usado para captar o chute ele sendo maiusculo ou minusculo
-                letras_acertadas[index] = letra  # ajuda a armazenar a letra correta em sua posição
-            index += 1
+        if chute in palavra_secreta:
+
+            index = 0  # utilizado para armazenar o espaço da letra chute
+            for letra in palavra_secreta:
+
+                if chute.upper() == letra.upper():  # usado para captar o chute ele sendo maiusculo ou minusculo
+                    letras_acertadas[index] = letra  # ajuda a armazenar a letra correta em sua posição
+                index += 1
         else:
-            erros += 1
+            erros = erros + 1
             print("Ops você errou! faltam {} tentativas.".format(6 - erros))
 
-            enforcou = erros == 6
-            acertou = "_" not in letras_acertadas
+        enforcou = erros == 6
+        acertou = "_" not in letras_acertadas
 
         print(letras_acertadas)
 
         print("Jogando...")
 
-    if (acertou):
+    if acertou:
         print("Voce ganhou!")
     else:
         print("Voce perdeu!")
 
-    print("Fim do jogo")
 
+print("Fim do jogo")
 
 if (__name__ == "__main__"):
     jogar()
