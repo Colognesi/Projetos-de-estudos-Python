@@ -5,7 +5,6 @@ def jogar():
     imprime_mensagem_inicio()
     palavra_secreta = inicia_palavra_secreta()
     letras_acertadas = inicializa_letras_acertadas(palavra_secreta)
-    # letras_faltantes = captura_letras_faltantes(letras_acertadas) -- ainda nao sei como implementar isso corretamente
     print(letras_acertadas)
 
     enforcou = False
@@ -26,7 +25,6 @@ def jogar():
         acertou = "_" not in letras_acertadas
 
         print(letras_acertadas)
-        # print(letras_faltantes) blagablaga
 
         print("Jogando...")
 
@@ -57,14 +55,6 @@ def inicia_palavra_secreta(nome_arquivo="palavras.txt"):
 def inicializa_letras_acertadas(palavra):
     return ["_" for letra in
             palavra]  # adicionada lista para poder saber onde estao as letras acertadas
-
-
-'''
-def captura_letras_faltantes(letra):
-    total_letras = str(letra.count("_"))
-    resposta = ("Ainda faltam {} letras".format(total_letras))
-    return resposta 
-'''
 
 
 def pede_chute():
